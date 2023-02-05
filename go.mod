@@ -1,3 +1,3 @@
-module github.com/antunesgabriel/code-cracker
+module github.com/antunesgabriel/codecracker
 
 go 1.20

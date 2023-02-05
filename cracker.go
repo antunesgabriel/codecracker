@@ -23,3 +23,20 @@ func Encrypt(message string) string {
 	
 	return encrypted
 }
+
+func Decrypt(messageEncrypt string) string {
+	decrypted := ""
+
+	for _, messageChar := range messageEncrypt {
+
+		for idx, char := range ALPHABET_KEY {
+
+			if string(messageChar) == string(char) {
+				decrypted += string(ALPHABET[idx])
+			}
+
+		}
+	}
+
+	return decrypted
+}

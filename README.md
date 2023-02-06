@@ -1,6 +1,6 @@
 # Code Cracker Kata
 
-<p>This is the [coding dojo kata](https://codingdojo.org/kata/CodeCracker) resolution in golang.</p>
+<p>This is the <a href="https://codingdojo.org/kata/CodeCracker" target="_blank">coding dojo kata</a> resolution in golang.</p>
 
 ## Problem Description:
 
@@ -145,5 +145,5 @@ func Decrypt(messageEncrypt string) string {
 ```
 
 <p>
-In the code above, the init function [(which is automatically executed in golang as soon as this package is imported)](https://tutorialedge.net/golang/the-go-init-function/) is used to create two key and value dictionaries for both decryption and encryption. With that we have only one we iterate only the input parameter in the functions of encrypting and decrypting, giving us an algorithm with complexity of <b>O(N)</n>.
+In the code above, the init function (<a href="https://tutorialedge.net/golang/the-go-init-function/" target="_blank">which is automatically executed in golang as soon as this package is imported</a>) is used to create two key and value dictionaries for both decryption and encryption. With that we have only one we iterate only the input parameter in the functions of encrypting and decrypting, giving us an algorithm with complexity of <b>O(N)</n>.
 </p>

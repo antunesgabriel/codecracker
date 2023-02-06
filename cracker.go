@@ -1,42 +1,38 @@
 package codecracker
 
-
 var (
-	ALPHABET = []rune("abcdefghijklmnopqrstuvwxyz")
-	ALPHABET_KEY = []rune(`!)"(£*%&><@abcdefghijklmno`)
+	EncryptDicionary = map[rune]rune{}
+	DecryptDicionary = map[rune]rune{}
 )
 
-func Encrypt(message string) string {
-	encrypted := ""
+func init() {
+	alphabet := []rune("abcdefghijklmnopqrstuvwxyz")
+	alphabetKey := []rune(`!)"(£*%&><@abcdefghijklmno`)
 
-	for _, messageChar := range message {
-
-		for idx, char := range ALPHABET {
-
-			if string(messageChar) == string(char) {
-				encrypted += string(ALPHABET_KEY[idx])
-
-				break
-			}
-		}
+	for idx, charDecrypted := range alphabet {
+		charEncrypted := alphabetKey[idx]
+		
+		EncryptDicionary[charDecrypted] = charEncrypted
+		DecryptDicionary[charEncrypted] = charDecrypted
 	}
-	
-	return encrypted
+}
+
+func Encrypt(message string) string {
+	encrypted := make([]rune, len(message))
+
+	for idx, char := range message {
+		encrypted[idx] = EncryptDicionary[char]
+	}
+
+	return string(encrypted)
 }
 
 func Decrypt(messageEncrypt string) string {
-	decrypted := ""
+	decrypted := make([]rune, len(messageEncrypt))
 
-	for _, messageChar := range messageEncrypt {
-
-		for idx, char := range ALPHABET_KEY {
-
-			if string(messageChar) == string(char) {
-				decrypted += string(ALPHABET[idx])
-			}
-
-		}
+	for idx, char := range messageEncrypt {
+		decrypted[idx] = DecryptDicionary[char]
 	}
 
-	return decrypted
+	return string(decrypted)
 }
